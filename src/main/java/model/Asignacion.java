@@ -9,7 +9,7 @@ import org.uqbar.commons.utils.Observable;
 public class Asignacion {
 
 	private Tarea tarea;
-	private List<Calificacion> calificaciones = new ArrayList<Calificacion>();
+	private List<Calificacion> calificaciones = new ArrayList<>();
 
 	public Asignacion(Tarea tarea, List<Calificacion> calificaciones) {
 		this.tarea = tarea;

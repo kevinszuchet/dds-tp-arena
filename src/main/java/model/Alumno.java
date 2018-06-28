@@ -10,7 +10,7 @@ public class Alumno {
 	private String nombreYapellido;
 	private long legajo;
 	private String usuarioGithub;
-	private List<Asignacion> asignaciones = new ArrayList<Asignacion>();
+	private List<Asignacion> asignaciones = new ArrayList<>();
 
 	public Alumno(String nombreYapellido, long legajo) {
 		super();
@@ -43,6 +43,14 @@ public class Alumno {
 	}
 	
 	public void agregarAsignacion(Asignacion asignacion) {
-		asignaciones.add(asignacion);		
+		asignaciones.add(asignacion);
+	}
+	
+	public List<Asignacion> getAsignaciones() {
+		return asignaciones;
+	}
+	
+	public boolean meCorrespondeElLegajo(long legajo) {
+		return this.legajo == legajo;
 	}
 }
