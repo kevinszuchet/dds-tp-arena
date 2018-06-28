@@ -32,7 +32,7 @@ public class VerNotasView extends SimpleWindow<VerNotasViewModel> {
 		
 		new Label(form).setText("Legajo");
 		new NumericField(mainPanel).bindValueToProperty("legajo");
-		new Button(mainPanel).setCaption("Ingresar").onClick(this::cargarAsignaciones);
+		new Button(mainPanel).setCaption("Ingresar").onClick(this::cargarAsignaciones).setAsDefault();
 		
 		Table<Asignacion> tableAsignaciones = new Table<>(mainPanel, Asignacion.class);
 		Column<Asignacion> columnaTarea = new Column<Asignacion>(tableAsignaciones);

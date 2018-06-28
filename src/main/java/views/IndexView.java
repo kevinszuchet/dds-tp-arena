@@ -32,7 +32,7 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 	}
 
 	public void editarPerfil() {
-		Window<?> window = new VerNotasView(this);
+		Window<?> window = new EditarPerfilView(this);
 		window.open();
 	}
 }
