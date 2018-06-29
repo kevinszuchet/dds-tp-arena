@@ -3,12 +3,14 @@ package views;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import viewModels.IndexViewModel;
 
+@SuppressWarnings("serial")
 public class IndexView extends SimpleWindow<IndexViewModel> {
 
 	public IndexView(WindowOwner parent) {
@@ -27,8 +29,9 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 	}
 
 	public void verNotas() {
-		Window<?> window = new VerNotasView(this);
-		window.open();
+		Dialog<?> dialog = new VerNotasView(this);
+		dialog.open();
+		dialog.onAccept(() -> {});
 	}
 
 	public void editarPerfil() {

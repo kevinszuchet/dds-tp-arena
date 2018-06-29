@@ -7,8 +7,8 @@ import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
+import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.ErrorsPanel;
-import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import model.Asignacion;
@@ -16,7 +16,7 @@ import model.NoExisteLegajoIngresadoException;
 import viewModels.VerNotasViewModel;
 
 @SuppressWarnings("serial")
-public class VerNotasView extends SimpleWindow<VerNotasViewModel> {
+public class VerNotasView extends Dialog<VerNotasViewModel> {
 	
 	Panel form;
 
@@ -36,10 +36,10 @@ public class VerNotasView extends SimpleWindow<VerNotasViewModel> {
 		
 		Table<Asignacion> tableAsignaciones = new Table<>(mainPanel, Asignacion.class);
 		Column<Asignacion> columnaTarea = new Column<Asignacion>(tableAsignaciones);
-		columnaTarea.setTitle("Tarea").bindContentsToProperty("asignacion.tarea");
+		columnaTarea.setTitle("Tarea").bindContentsToProperty("asignaciones.getTarea()");
 		
 		Column<Asignacion> columnaNotas = new Column<Asignacion>(tableAsignaciones);
-		columnaNotas.setTitle("Notas").bindContentsToProperty("asignacion.calificaciones");
+		columnaNotas.setTitle("Notas").bindContentsToProperty("asignaciones.calificaciones");
 		
 		tableAsignaciones.setHeight(300);
 		tableAsignaciones.setWidth(600);

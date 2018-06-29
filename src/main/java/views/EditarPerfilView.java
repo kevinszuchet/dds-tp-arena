@@ -6,13 +6,14 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
+import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import viewModels.EditarPerfilViewModel;
 
 @SuppressWarnings("serial")
-public class EditarPerfilView extends SimpleWindow<EditarPerfilViewModel> {
+public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 	
 	Panel form;
 

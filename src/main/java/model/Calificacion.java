@@ -1,5 +1,6 @@
 package model;
 
-public class Calificacion {
-	
+public interface Calificacion {	
+	public boolean calificacionAprobada();
+	public String getCalificacion();
 }
