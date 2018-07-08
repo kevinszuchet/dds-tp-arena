@@ -7,10 +7,10 @@ import model.Asignacion;
 
 public class AsignacionesRepository {
 
-	private List<Asignacion> ventas = new ArrayList<>();
+	private List<Asignacion> asignaciones = new ArrayList<>();
 
 	public List<Asignacion> all() {
-		return this.ventas;
+		return this.asignaciones;
 	}
 
 }

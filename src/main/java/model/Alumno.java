@@ -22,24 +22,27 @@ public class Alumno {
 		return nombreYapellido;
 	}
 
-	public void setNombreYapellido(String nombreYapellido) {
+	public Alumno setNombreYapellido(String nombreYapellido) {
 		this.nombreYapellido = nombreYapellido;
+		return this;
 	}
 
 	public long getLegajo() {
 		return legajo;
 	}
 
-	public void setLegajo(long legajo) {
+	public Alumno setLegajo(long legajo) {
 		this.legajo = legajo;
+		return this;
 	}
 
 	public String getUsuarioGithub() {
 		return usuarioGithub;
 	}
 
-	public void setUsuarioGithub(String usuarioGithub) {
+	public Alumno setUsuarioGithub(String usuarioGithub) {
 		this.usuarioGithub = usuarioGithub;
+		return this;
 	}
 	
 	public void agregarAsignacion(Asignacion asignacion) {

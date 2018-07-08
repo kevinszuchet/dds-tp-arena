@@ -1,9 +1,21 @@
 package viewModels;
 
+import org.uqbar.commons.utils.Observable;
+
+import model.Alumno;
+
+@Observable
 public class EditarPerfilViewModel {
+	private Alumno alumno;
+	
 	private String nombreYApellido;
 	private long legajo;
 	private String usuarioGithub;
+	
+	public EditarPerfilViewModel(Alumno alumno) {
+		super();
+		this.alumno = alumno;
+	}
 	
 	public String getNombreYApellido() {
 		return nombreYApellido;
@@ -30,6 +42,6 @@ public class EditarPerfilViewModel {
 	}
 	
 	public void modificarPerfil() {
-		// TODO habria que obtener el alumno -> por legajo? y modificar los datos
+		alumno.setNombreYapellido(nombreYApellido).setLegajo(legajo).setUsuarioGithub(usuarioGithub);
 	}
 }
