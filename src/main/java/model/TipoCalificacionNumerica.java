@@ -6,7 +6,12 @@ public class TipoCalificacionNumerica implements TipoCalificacion<CalificacionNu
 	private final int seApruebaCon = 6;
 	
 	public boolean calificacionesAprobadas(List<CalificacionNumerica> calificaciones) {
-		return calificaciones.stream().allMatch(calificacion -> this.calificacionAprobada(calificacion));
+		return this.ultimaCalificacionAprobada(calificaciones);
+	}
+	
+	public boolean ultimaCalificacionAprobada(List<CalificacionNumerica> calificaciones) {
+		CalificacionNumerica ultCalificacion = calificaciones.get(calificaciones.size() - 1);
+		return this.calificacionAprobada(ultCalificacion);
 	}
 	
 	public boolean calificacionAprobada(CalificacionNumerica calificacion) {
