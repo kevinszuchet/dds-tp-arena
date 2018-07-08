@@ -1,9 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 enum ValorConceptual {
 	MAL, 
 	REGULAR, 
@@ -19,8 +15,7 @@ enum ValorConceptual {
 	}
 }
 
-public class CalificacionConceptual implements Calificacion {
-	final List<ValorConceptual> conceptosAprobables = new ArrayList<>(Arrays.asList(ValorConceptual.BIEN, ValorConceptual.MUY_BIEN)); 
+public class CalificacionConceptual implements Calificacion { 
 	private ValorConceptual valor;
 	
 	public CalificacionConceptual(ValorConceptual valor) {
@@ -31,7 +26,7 @@ public class CalificacionConceptual implements Calificacion {
 		return valor.toString();		
 	}
 	
-	public boolean calificacionAprobada() {
-		return conceptosAprobables.contains(valor);
+	public ValorConceptual getValor() {
+		return valor;
 	}
 }

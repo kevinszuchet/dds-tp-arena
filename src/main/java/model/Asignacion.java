@@ -13,12 +13,22 @@ public class Asignacion {
 
 	public Asignacion(Tarea tarea, List<Calificacion> calificaciones) {
 		this.tarea = tarea;
-		calificaciones.forEach(calificacion -> tarea.validarCalificacion(calificacion));
 		this.calificaciones = calificaciones;
 	}
 	
+	public List<Calificacion> getCalificaciones() {
+		return calificaciones;
+	}
+	
 	public void agregarCalificacion(Calificacion calificacion) {
-		tarea.validarCalificacion(calificacion);
 		calificaciones.add(calificacion);
+	}
+	
+	public boolean estaAprobada() {
+		return tarea.asignacionAprobada(this);
+	}
+	
+	public Calificacion getNotaActual() {
+		return calificaciones.get(calificaciones.size() - 1);
 	}
 }

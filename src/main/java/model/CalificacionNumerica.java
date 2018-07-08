@@ -1,7 +1,6 @@
 package model;
 
 public class CalificacionNumerica implements Calificacion {
-	private final int seApruebaCon = 6;
 	private int valor;
 	
 	public CalificacionNumerica(int valor) {
@@ -12,7 +11,7 @@ public class CalificacionNumerica implements Calificacion {
 		return Integer.toString(valor);
 	}
 	
-	public boolean calificacionAprobada() {
-		return valor >= seApruebaCon;
+	public int getValor() {
+		return valor;
 	}
 }
