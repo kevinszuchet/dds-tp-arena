@@ -10,6 +10,8 @@ import org.uqbar.arena.windows.ErrorsPanel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.UserException;
+import org.uqbar.lacar.ui.model.Action;
 
 import model.Alumno;
 import model.NoExisteLegajoIngresadoException;
@@ -19,7 +21,6 @@ import viewModels.IndexViewModel;
 public class IndexView extends SimpleWindow<IndexViewModel> {
 	
 	Panel form;
-	Alumno alumno;
 
 	public IndexView(WindowOwner parent) {
 		super(parent, new IndexViewModel());
@@ -42,24 +43,26 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 	}
 
 	public void verNotas() {
-		obtenerAlumno();
-		Dialog<?> dialog = new VerNotasView(this, alumno);
-		dialog.open();
-		dialog.onAccept(() -> {});
-	}
-
-	public void editarPerfil() {
-		obtenerAlumno();
-		Window<?> window = new EditarPerfilView(this, alumno);
-		window.open();
-	}
-	
-	protected void obtenerAlumno() {
-		// TODO habria que mejorar el tema de la variable alumno y que no muestra los errores
 		try {
-			alumno = this.getModelObject().getAlumnoXlegajo();
+			Dialog<?> dialog = new VerNotasView(this, this.obtenerAlumno());
+			dialog.open();
+			dialog.onAccept(() -> {});
 		} catch(NoExisteLegajoIngresadoException e) {
 			new ErrorsPanel(form, "El legajo ingresado no existe", 1);
 		}
+	}
+
+	public void editarPerfil() {
+		try {
+			Window<?> window = new EditarPerfilView(this, this.obtenerAlumno());
+			window.open();
+		} catch(NoExisteLegajoIngresadoException e) {
+			new ErrorsPanel(form, "El legajo ingresado no existe", 1);
+			throw new UserException("El legajo ingresado no existe");
+		}
+	}
+	
+	protected Alumno obtenerAlumno() {
+		return this.getModelObject().getAlumnoXlegajo();
 	}
 }

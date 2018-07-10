@@ -10,8 +10,8 @@ public class AlumnosRepository {
 
 	private List<Alumno> alumnos = new LinkedList<>();
 
-	public void agregar(Alumno prenda) {
-		this.alumnos.add(prenda);
+	public void agregar(Alumno alumno) {
+		this.alumnos.add(alumno);
 	}
 
 	public List<Alumno> all() {

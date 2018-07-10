@@ -2,7 +2,8 @@ package model;
 
 import java.util.List;
 
-public interface TipoCalificacion<TCalificacion> {
-	public boolean calificacionAprobada(TCalificacion calificacion);
-	public boolean calificacionesAprobadas(List<TCalificacion> calificaciones);	
+@SuppressWarnings("hiding")
+public abstract class TipoCalificacion<Calificacion> {
+	public abstract boolean calificacionAprobada(Calificacion calificacion);
+	public abstract boolean calificacionesAprobadas(List<Calificacion> calificaciones);	
 }

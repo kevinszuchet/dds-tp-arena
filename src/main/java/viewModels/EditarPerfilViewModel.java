@@ -15,6 +15,10 @@ public class EditarPerfilViewModel {
 	public EditarPerfilViewModel(Alumno alumno) {
 		super();
 		this.alumno = alumno;
+		
+		this.nombreYApellido = alumno.getNombreYapellido();
+		this.legajo = alumno.getLegajo();
+		this.usuarioGithub = alumno.getUsuarioGithub();
 	}
 	
 	public String getNombreYApellido() {

@@ -19,17 +19,17 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 
 	public EditarPerfilView(WindowOwner owner, Alumno alumno) {
 		super(owner, new EditarPerfilViewModel(alumno));
-		this.setTitle("Ver mis notas");
 	}
 
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
+		this.setTitle("Ver mis notas");
 		form = new Panel(mainPanel);
 		form.setLayout(new ColumnLayout(2));
 		
 		int preferedSize = 100;
 		
-		new Label(form).setText("Nombre y apeliido");
+		new Label(form).setText("Nombre y apellido");
 		new TextBox(mainPanel).setWidth(preferedSize).bindValueToProperty("nombreYApellido");
 		
 		new Label(form).setText("Legajo");
@@ -47,6 +47,7 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 	}
 	
 	public void guardar() {
-		// TODO
+		this.getModelObject().modificarPerfil();
+		this.close();
 	}
 }
