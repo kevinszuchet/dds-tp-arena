@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.Color;
+
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
@@ -38,8 +40,8 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 		new Label(form).setText("Ingrese su legajo");
 		new TextBox(mainPanel).bindValueToProperty("legajo");
 		
-		new Button(mainPanel).setCaption("Ver mis notas").onClick(this::verNotas);
-		new Button(mainPanel).setCaption("Actualizar mis datos").onClick(this::editarPerfil);
+		new Button(mainPanel).setCaption("Ingresar").onClick(this::verNotas);
+		//new Button(mainPanel).setCaption("Actualizar mis datos").onClick(this::editarPerfil);
 	}
 
 	public void verNotas() {
@@ -49,10 +51,11 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 			dialog.onAccept(() -> {});
 		} catch(NoExisteLegajoIngresadoException e) {
 			new ErrorsPanel(form, "El legajo ingresado no existe", 1);
+			throw new UserException("El legajo ingresado no existe");
 		}
 	}
 
-	public void editarPerfil() {
+	/*public void editarPerfil() {
 		try {
 			Window<?> window = new EditarPerfilView(this, this.obtenerAlumno());
 			window.open();
@@ -60,7 +63,7 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 			new ErrorsPanel(form, "El legajo ingresado no existe", 1);
 			throw new UserException("El legajo ingresado no existe");
 		}
-	}
+	}*/
 	
 	protected Alumno obtenerAlumno() {
 		return this.getModelObject().getAlumnoXlegajo();

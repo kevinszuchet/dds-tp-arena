@@ -7,10 +7,12 @@ import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
+import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import model.Alumno;
 import viewModels.EditarPerfilViewModel;
+import viewModels.VerNotasViewModel;
 
 @SuppressWarnings("serial")
 public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
@@ -28,7 +30,7 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 		form.setLayout(new ColumnLayout(2));
 		
 		int preferedSize = 100;
-		
+		new Label(form).bindValueToProperty("nombreYApellido");
 		new Label(form).setText("Nombre y apellido");
 		new TextBox(form).setWidth(preferedSize).bindValueToProperty("nombreYApellido");
 		
@@ -49,5 +51,9 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 	public void guardar() {
 		this.getModelObject().modificarPerfil();
 		this.close();
+	}
+	
+	protected Alumno obtenerAlumno() {
+		return this.getModelObject().getAlumno();
 	}
 }

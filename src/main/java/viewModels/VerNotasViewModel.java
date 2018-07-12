@@ -19,4 +19,17 @@ public class VerNotasViewModel {
 	public List<Asignacion> getAsignaciones() {
 		return alumno.getAsignaciones();
 	}
+	
+	public String getNombreYApellido() {
+		return alumno.getNombreYapellido();
+	}
+	
+	public Alumno getAlumno() {
+		
+		return alumno;
+	}
+	
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
 }
