@@ -30,7 +30,6 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 		form.setLayout(new ColumnLayout(2));
 		
 		int preferedSize = 100;
-		new Label(form).bindValueToProperty("nombreYApellido");
 		new Label(form).setText("Nombre y apellido");
 		new TextBox(form).setWidth(preferedSize).bindValueToProperty("nombreYApellido");
 		
