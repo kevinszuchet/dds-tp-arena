@@ -24,6 +24,14 @@ public class VerNotasViewModel {
 		return alumno.getNombreYapellido();
 	}
 	
+	public long getLegajo() {
+		return alumno.getLegajo();
+	}
+	
+	public String getUsuarioGithub() {
+		return alumno.getUsuarioGithub();
+	}
+	
 	public Alumno getAlumno() {		
 		return alumno;
 	}

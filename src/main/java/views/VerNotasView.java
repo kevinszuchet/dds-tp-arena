@@ -1,21 +1,19 @@
 package views;
 
 import org.uqbar.arena.layout.ColumnLayout;
+import org.uqbar.arena.layout.HorizontalLayout;
+import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
-import org.uqbar.arena.windows.ErrorsPanel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.commons.model.UserException;
-import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
 import model.Asignacion;
-import model.NoExisteLegajoIngresadoException;
 import viewModels.VerNotasViewModel;
 
 @SuppressWarnings("serial")
@@ -31,10 +29,22 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 	protected void createFormPanel(Panel mainPanel) {
 		this.setTitle("Ver mis notas");
 		form = new Panel(mainPanel);
-		form.setLayout(new ColumnLayout(3));
+		form.setLayout(new ColumnLayout(2));
+
+		Panel datosAlumnoPanel = new Panel(form).setLayout(new VerticalLayout());
 		
-		new Label(form).setText("Bienvenido:");
-		new Label(form).bindValueToProperty("nombreYApellido");//TODO hacer que se actualice si cambias los datos del alumno
+		Panel panelNombre = new Panel(datosAlumnoPanel).setLayout(new HorizontalLayout());
+		new Label(panelNombre).setText("Bienvenido: ");
+		new Label(panelNombre).bindValueToProperty("nombreYApellido");
+		
+		Panel legajoPanel = new Panel(datosAlumnoPanel).setLayout(new HorizontalLayout());
+		new Label(legajoPanel).setText("Legajo: ");
+		new Label(legajoPanel).bindValueToProperty("legajo");
+		
+		Panel githubPanel = new Panel(datosAlumnoPanel).setLayout(new HorizontalLayout());
+		new Label(githubPanel).setText("Usuario de github: ");
+		new Label(githubPanel).bindValueToProperty("usuarioGithub");
+		
 		Table<Asignacion> tableAsignaciones = new Table<>(mainPanel, Asignacion.class);
 		tableAsignaciones.bindItemsToProperty("asignaciones");
 		
@@ -45,13 +55,12 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 		columnaNotas.setTitle("Notas").bindContentsToProperty("valorCalificacionActual");
 		
 		Column<Asignacion> columnaAprobado = new Column<Asignacion>(tableAsignaciones);
-		columnaAprobado.setTitle("Aprobado").bindContentsToProperty("estaONoAprobada");
-		
-		new Button(mainPanel).setCaption("Actualizar mis datos").onClick(this::editarPerfil);
+		columnaAprobado.setTitle("Aprobado").bindContentsToProperty("estaONoAprobada");		
 		
 		tableAsignaciones.setHeight(300);
 		tableAsignaciones.setWidth(600);
 		
+		new Button(mainPanel).setCaption("Actualizar mis datos").onClick(this::editarPerfil);
 	}
 
 	@Override

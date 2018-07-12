@@ -7,12 +7,10 @@ import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
-import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import model.Alumno;
 import viewModels.EditarPerfilViewModel;
-import viewModels.VerNotasViewModel;
 
 @SuppressWarnings("serial")
 public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
