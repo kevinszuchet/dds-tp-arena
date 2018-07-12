@@ -25,10 +25,22 @@ public class Asignacion {
 	}
 	
 	public boolean estaAprobada() {
-		return tarea.asignacionAprobada(this);
+		return getCalificacionActual().estaAprobada();
 	}
 	
-	public Calificacion getNotaActual() {
+	public String estaONoAprobada() {
+		return getCalificacionActual().estaAprobada() ? "Si" : "No";
+	}
+	
+	public Calificacion getCalificacionActual() {
 		return calificaciones.get(calificaciones.size() - 1);
+	}
+	
+	public String getValorCalificacionActual() {
+		return getCalificacionActual().getCalificacion();
+	}
+	
+	public String getNombreTarea() {
+		return tarea.getNombre();
 	}
 }

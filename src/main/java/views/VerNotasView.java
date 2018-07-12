@@ -28,11 +28,16 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 		form.setLayout(new ColumnLayout(3));
 		
 		Table<Asignacion> tableAsignaciones = new Table<>(mainPanel, Asignacion.class);
+		tableAsignaciones.bindItemsToProperty("asignaciones");
+		
 		Column<Asignacion> columnaTarea = new Column<Asignacion>(tableAsignaciones);
-		columnaTarea.setTitle("Tarea").bindContentsToProperty("asignaciones.getTarea()");
+		columnaTarea.setTitle("Tarea").bindContentsToProperty("nombreTarea");
 		
 		Column<Asignacion> columnaNotas = new Column<Asignacion>(tableAsignaciones);
-		columnaNotas.setTitle("Notas").bindContentsToProperty("asignaciones.calificaciones");
+		columnaNotas.setTitle("Notas").bindContentsToProperty("valorCalificacionActual");
+		
+		Column<Asignacion> columnaAprobado = new Column<Asignacion>(tableAsignaciones);
+		columnaAprobado.setTitle("Aprobado").bindContentsToProperty("estaONoAprobada");
 		
 		tableAsignaciones.setHeight(300);
 		tableAsignaciones.setWidth(600);

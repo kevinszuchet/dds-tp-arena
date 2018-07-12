@@ -53,6 +53,10 @@ public class Alumno {
 		return asignaciones;
 	}
 	
+	public void setAsignaciones(List<Asignacion> asignaciones) {
+		this.asignaciones = asignaciones;		
+	}
+	
 	public boolean meCorrespondeElLegajo(long legajo) {
 		return this.legajo == legajo;
 	}

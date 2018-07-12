@@ -1,17 +1,18 @@
 package model;
 
 public class CalificacionNumerica implements Calificacion {
-	private int valor;
+	private final double seApruebaCon = 6;
+	private double valor;
 	
 	public CalificacionNumerica(int valor) {
 		this.valor = valor;
 	}
 	
 	public String getCalificacion() {
-		return Integer.toString(valor);
+		return Double.toString(valor);
 	}
 	
-	public int getValor() {
-		return valor;
+	public boolean estaAprobada() {
+		return valor >= seApruebaCon;
 	}
 }
