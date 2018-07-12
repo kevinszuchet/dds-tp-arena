@@ -11,6 +11,7 @@ import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.ObservableUtils;
 
 import model.Alumno;
 import model.Asignacion;
@@ -37,14 +38,6 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 		new Label(panelNombre).setText("Bienvenido: ");
 		new Label(panelNombre).bindValueToProperty("nombreYApellido");
 		
-		Panel legajoPanel = new Panel(datosAlumnoPanel).setLayout(new HorizontalLayout());
-		new Label(legajoPanel).setText("Legajo: ");
-		new Label(legajoPanel).bindValueToProperty("legajo");
-		
-		Panel githubPanel = new Panel(datosAlumnoPanel).setLayout(new HorizontalLayout());
-		new Label(githubPanel).setText("Usuario de github: ");
-		new Label(githubPanel).bindValueToProperty("usuarioGithub");
-		
 		Table<Asignacion> tableAsignaciones = new Table<>(mainPanel, Asignacion.class);
 		tableAsignaciones.bindItemsToProperty("asignaciones");
 		
@@ -70,8 +63,9 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 	}
 	
 	public void editarPerfil() {		
-		Window<?> window = new EditarPerfilView(this, this.obtenerAlumno());
-		window.open();
+		Dialog<?> dialog = new EditarPerfilView(this, this.obtenerAlumno());
+		dialog.onAccept(() -> ObservableUtils.firePropertyChanged(this.getModelObject(), "nombreYApellido"));
+		dialog.open();
 	}
 	
 	protected Alumno obtenerAlumno() {

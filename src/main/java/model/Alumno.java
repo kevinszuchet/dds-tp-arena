@@ -7,7 +7,7 @@ import org.uqbar.commons.utils.Observable;
 
 @Observable
 public class Alumno {
-	private String nombreYapellido;
+	public String nombreYapellido;
 	private long legajo;
 	private String usuarioGithub;
 	private List<Asignacion> asignaciones = new ArrayList<>();

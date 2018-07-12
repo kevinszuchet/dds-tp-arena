@@ -1,6 +1,7 @@
 package views;
 
 import org.uqbar.arena.layout.ColumnLayout;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
@@ -37,16 +38,20 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 		new Label(form).setText("Usuario de github");
 		new TextBox(form).setWidth(preferedSize).bindValueToProperty("usuarioGithub");
 		
-		new Button(form).setCaption("Guardar").onClick(this::guardar).setAsDefault();
-		new Button(form).setCaption("Volver").onClick(this::close);
+		Panel buttosPanel = new Panel(form);
+		buttosPanel.setLayout(new HorizontalLayout());
+		
+		new Button(buttosPanel).setCaption("Guardar").onClick(this::accept).setAsDefault();
+		new Button(buttosPanel).setCaption("Volver").onClick(this::close);
 	}
 
 	@Override
 	protected void addActions(Panel actions) {
 	}
 	
-	public void guardar() {
+	@Override
+	public void executeTask() {
 		this.getModelObject().modificarPerfil();
-		this.close();
+		super.executeTask();
 	}
 }

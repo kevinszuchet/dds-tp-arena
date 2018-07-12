@@ -35,4 +35,8 @@ public class VerNotasViewModel {
 	public Alumno getAlumno() {		
 		return alumno;
 	}
+	
+	public void actualizar() {
+		
+	}
 }
