@@ -53,7 +53,7 @@ public class Fixture {
 		Alumno natalio = new Alumno("Natalio Steiner", 90);
 		natalio.agregarAsignacion(asignacionKabalah);
 		
-		Alumno saralegui = new Alumno("Saralegui", 90);
+		Alumno saralegui = new Alumno("Saralegui", 9090);
 		saralegui.agregarAsignacion(asignacionVolver);
 		
 		Alumno leo = new Alumno("Leo NN", 12);

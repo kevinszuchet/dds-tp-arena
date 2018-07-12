@@ -24,12 +24,7 @@ public class VerNotasViewModel {
 		return alumno.getNombreYapellido();
 	}
 	
-	public Alumno getAlumno() {
-		
+	public Alumno getAlumno() {		
 		return alumno;
-	}
-	
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
 	}
 }

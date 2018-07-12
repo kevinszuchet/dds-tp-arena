@@ -60,11 +60,9 @@ public class VerNotasView extends Dialog<VerNotasViewModel> {
 		// TODO cerrar todo -> se puede?
 	}
 	
-	public void editarPerfil() {
-		
+	public void editarPerfil() {		
 		Window<?> window = new EditarPerfilView(this, this.obtenerAlumno());
 		window.open();
-
 	}
 	
 	protected Alumno obtenerAlumno() {

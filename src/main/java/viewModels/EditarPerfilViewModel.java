@@ -48,9 +48,4 @@ public class EditarPerfilViewModel {
 	public void modificarPerfil() {
 		alumno.setNombreYapellido(nombreYApellido).setLegajo(legajo).setUsuarioGithub(usuarioGithub);
 	}
-
-	public Alumno getAlumno() {
-		
-		return this.alumno;
-	}
 }

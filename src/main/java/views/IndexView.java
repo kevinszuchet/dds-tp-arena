@@ -40,11 +40,10 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 		new Label(form).setText("Ingrese su legajo");
 		new TextBox(mainPanel).bindValueToProperty("legajo");
 		
-		new Button(mainPanel).setCaption("Ingresar").onClick(this::verNotas);
-		//new Button(mainPanel).setCaption("Actualizar mis datos").onClick(this::editarPerfil);
+		new Button(mainPanel).setCaption("Ingresar").onClick(this::ingresar);
 	}
 
-	public void verNotas() {
+	public void ingresar() {
 		try {
 			Dialog<?> dialog = new VerNotasView(this, this.obtenerAlumno());
 			dialog.open();
@@ -54,16 +53,6 @@ public class IndexView extends SimpleWindow<IndexViewModel> {
 			throw new UserException("El legajo ingresado no existe");
 		}
 	}
-
-	/*public void editarPerfil() {
-		try {
-			Window<?> window = new EditarPerfilView(this, this.obtenerAlumno());
-			window.open();
-		} catch(NoExisteLegajoIngresadoException e) {
-			new ErrorsPanel(form, "El legajo ingresado no existe", 1);
-			throw new UserException("El legajo ingresado no existe");
-		}
-	}*/
 	
 	protected Alumno obtenerAlumno() {
 		return this.getModelObject().getAlumnoXlegajo();

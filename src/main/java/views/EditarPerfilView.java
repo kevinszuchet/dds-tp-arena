@@ -52,8 +52,4 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 		this.getModelObject().modificarPerfil();
 		this.close();
 	}
-	
-	protected Alumno obtenerAlumno() {
-		return this.getModelObject().getAlumno();
-	}
 }
