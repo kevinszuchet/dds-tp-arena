@@ -23,10 +23,10 @@ public class ApiConnector {
         //para agregarle filtros en las respuestas (por ejemplo, para loguear).
     }
     
-//    public ClientResponse getGenericResponse (List<String> resources, String token){
+//    public ClientResponse getGenericResponse (List<String> paths, String token){
 //    	
 //    	ClientResponse  response = this.client.resource(API_DDS)
-//				.path(String.join("", resources))
+//				.path(String.join("", paths))
 //				.header("Authorization", "Bearer" + token)
 //				.accept(MediaType.APPLICATION_JSON)
 //				.get(ClientResponse.class);
