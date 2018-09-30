@@ -54,6 +54,23 @@ public class ApiConnector {
     	
         return response;
     }
+    public String getUpdateJson(String name, String lastName, String githubUser){
+    	String json = "{ 'first_name':'" + name + "'" +
+    					 "'last_name':" + lastName + "'" +
+    					 "'github_user':'" + githubUser + "'" + 
+    			      "}";
+		return json;
+    }
+    public ClientResponse updateStudentByToken (String token, String name, String lastName, String githubUser) {
+    	
+    	ClientResponse  response = this.client.resource(API_DDS)
+    								.path(STUDENTRESOURCE)
+    								.header("Authorization", "Bearer" + token)
+                					.accept(MediaType.APPLICATION_JSON)
+                					.put(ClientResponse.class, getUpdateJson(name, lastName, githubUser));
+    	
+        return response;
+    }
     
     public ClientResponse getStudentAssignmentsByToken (String token) {
     	
