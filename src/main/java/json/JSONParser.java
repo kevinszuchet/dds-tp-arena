@@ -12,9 +12,10 @@ import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
 public class JSONParser<Entidad> {		 
 	
-	public List<Entidad> parsear(String json, Class<Entidad> tipoEntidad) {
+	ObjectMapper mapper = new ObjectMapper().registerModule(new ParameterNamesModule()).registerModule(new Jdk8Module()).registerModule(new JavaTimeModule());
+	
+	public List<Entidad> jsonToObjects(String json, Class<Entidad> tipoEntidad) {
 		
-		ObjectMapper mapper = new ObjectMapper().registerModule(new ParameterNamesModule()).registerModule(new Jdk8Module()).registerModule(new JavaTimeModule());
 		List<Entidad> elementos = new ArrayList<>();
 		
 		try {
@@ -28,5 +29,22 @@ public class JSONParser<Entidad> {
 		}
 		
 		return elementos;
+	}
+	
+	public String objectToJson(Class<Entidad> entidad) {
+
+		String json = ""; 
+		
+		try {
+			json = mapper.writeValueAsString(entidad);
+		} catch (JsonParseException e) {
+			throw new NoSePudoImportarJSONException();
+		} catch (JsonMappingException e) {
+			throw new NoSePudoImportarJSONException();
+		} catch (IOException e) {
+			throw new NoSePudoImportarJSONException();
+		}
+		
+		return json;
 	}
 }
