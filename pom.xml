@@ -27,11 +27,37 @@
         <artifactId>arena-jface</artifactId>
         <version>3.6.1</version>
      </dependency>
+     
+     <!-- Jersey -->
      <dependency>
      	<groupId>com.sun.jersey</groupId>
         <artifactId>jersey-client</artifactId>
         <version>1.8</version>
 	 </dependency>
+	 
+	 <!-- Jackson -->
+	 <dependency>
+  	    <groupId>com.fasterxml.jackson.core</groupId>
+  	    <artifactId>jackson-databind</artifactId>
+  	    <version>2.9.5</version>
+  	</dependency>
+  	
+  	<dependency>
+      	<groupId>com.fasterxml.jackson.module</groupId>
+      	<artifactId>jackson-module-parameter-names</artifactId>
+      	<version>2.9.5</version>
+  	</dependency>
+
+  	<dependency>
+      	<groupId>com.fasterxml.jackson.datatype</groupId>
+      	<artifactId>jackson-datatype-jdk8</artifactId>
+      	<version>2.9.5</version>
+  	</dependency>
+  	<dependency>
+      	<groupId>com.fasterxml.jackson.datatype</groupId>
+      	<artifactId>jackson-datatype-jsr310</artifactId>
+      	<version>2.9.5</version>
+  	</dependency>
    </dependencies>
 
   <build>
