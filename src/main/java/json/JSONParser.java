@@ -14,7 +14,24 @@ public class JSONParser<Entidad> {
 	
 	ObjectMapper mapper = new ObjectMapper().registerModule(new ParameterNamesModule()).registerModule(new Jdk8Module()).registerModule(new JavaTimeModule());
 	
-	public List<Entidad> jsonToObjects(String json, Class<Entidad> tipoEntidad) {
+	public Entidad jsonToObject(String json, Class<Entidad> tipoEntidad) {
+		
+		Entidad elemento;
+		
+		try {
+			elemento = mapper.readValue(json, tipoEntidad);
+		} catch (NoSePudoImportarJSONException e) {
+			throw new NoSePudoImportarJSONException();
+		} catch (JsonMappingException e) {
+			throw new NoSePudoImportarJSONException();
+		} catch (IOException e) {
+			throw new NoSePudoImportarJSONException();
+		}
+		
+		return elemento;
+	}
+	
+	public List<Entidad> jsonToObjectList(String json, Class<Entidad> tipoEntidad) {
 		
 		List<Entidad> elementos = new ArrayList<>();
 		

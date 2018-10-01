@@ -21,7 +21,7 @@ public class VerNotasViewModel {
 	}
 	
 	public String getNombreYApellido() {
-		return alumno.getNombreYapellido();
+		return alumno.getNombreYApellido();
 	}
 	
 	public long getLegajo() {

@@ -16,7 +16,7 @@ public class ApiConnector {
     private static final String STUDENTRESOURCE = "/student";
     private static final String ASSIGNMENTSRESOURCE = "/assignments";
 
-    //Inicializacion del cliente.
+    // Inicializacion del cliente.
     public ApiConnector() {
         this.client = Client.create();
         //En la documentacion se puede ver como al cliente agregarle un ClientConfig
@@ -44,42 +44,38 @@ public class ApiConnector {
 //    	return this.getGenericResponse(Arrays.asList(STUDENTRESOURCE, ASSIGNMENTSRESOURCE), token);
 //    }
     
-    public ClientResponse getStudentByToken (String token) {
+    public ClientResponse getStudentByToken(String token) {
     	
-    	ClientResponse  response = this.client.resource(API_DDS)
-    								.path(STUDENTRESOURCE)
-    								.header("Authorization", "Bearer" + token)
-                					.accept(MediaType.APPLICATION_JSON)
-                					.get(ClientResponse.class);
-    	
-        return response;
-    }
-    public String getUpdateJson(String name, String lastName, String githubUser){
-    	String json = "{ 'first_name':'" + name + "'" +
-    					 "'last_name':" + lastName + "'" +
-    					 "'github_user':'" + githubUser + "'" + 
-    			      "}";
-		return json;
-    }
-    public ClientResponse updateStudentByToken (String token, String name, String lastName, String githubUser) {
-    	
-    	ClientResponse  response = this.client.resource(API_DDS)
-    								.path(STUDENTRESOURCE)
-    								.header("Authorization", "Bearer" + token)
-                					.accept(MediaType.APPLICATION_JSON)
-                					.put(ClientResponse.class, getUpdateJson(name, lastName, githubUser));
-    	
-        return response;
+    	return this.client.resource(API_DDS)
+				.path(STUDENTRESOURCE)
+				.header("Authorization", "Bearer " + token)
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ClientResponse.class);
     }
     
-    public ClientResponse getStudentAssignmentsByToken (String token) {
+    public String getUpdateJson(String name, String lastName, String githubUser) {
+    	return 	"{" + 
+					"'first_name':'" + name + "'" +
+					"'last_name':" + lastName + "'" +
+					"'github_user':'" + githubUser + "'" + 
+				"}";
+    }
+    
+    public ClientResponse updateStudentBy(String token, String name, String lastName, String githubUser) {
     	
-    	ClientResponse  response = this.client.resource(API_DDS)
-    								.path(STUDENTRESOURCE).path(ASSIGNMENTSRESOURCE)
-    								.header("Authorization", "Bearer" + token)
-                					.accept(MediaType.APPLICATION_JSON)
-                					.get(ClientResponse.class);
+    	return this.client.resource(API_DDS)
+				.path(STUDENTRESOURCE)
+				.header("Authorization", "Bearer " + token)
+				.accept(MediaType.APPLICATION_JSON)
+				.put(ClientResponse.class, getUpdateJson(name, lastName, githubUser));
+    }
+    
+    public ClientResponse getStudentAssignmentsByToken(String token) {
     	
-        return response;
+    	return this.client.resource(API_DDS)
+				.path(STUDENTRESOURCE).path(ASSIGNMENTSRESOURCE)
+				.header("Authorization", "Bearer " + token)
+				.accept(MediaType.APPLICATION_JSON)
+				.get(ClientResponse.class);
     }
 }

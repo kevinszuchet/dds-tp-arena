@@ -43,20 +43,20 @@ public class Fixture {
 		Repositorios.asignaciones.agregar(asignacionVolver);
 		Repositorios.asignaciones.agregar(asignacionLlamar);
 		
-		Alumno krane = new Alumno("Matias Kranevitter", 0);
+		Alumno krane = new Alumno("Matias", "Kranevitter", 0);
 		krane.agregarAsignacion(asignacionNumerica);
 		krane.agregarAsignacion(asignacionConceptual);
 		
-		Alumno jorge = new Alumno("Jorge Supital", 1234);
+		Alumno jorge = new Alumno("Jorge", "Supital", 1234);
 		jorge.agregarAsignacion(asignacionCroc);
 		
-		Alumno natalio = new Alumno("Natalio Steiner", 90);
+		Alumno natalio = new Alumno("Natalio", "Steiner", 90);
 		natalio.agregarAsignacion(asignacionKabalah);
 		
-		Alumno saralegui = new Alumno("Saralegui", 9090);
+		Alumno saralegui = new Alumno("Jorge", "Saralegui", 9090);
 		saralegui.agregarAsignacion(asignacionVolver);
 		
-		Alumno leo = new Alumno("Leo NN", 12);
+		Alumno leo = new Alumno("Leo", "NN", 12);
 		leo.agregarAsignacion(asignacionLlamar);
 		
 		Repositorios.alumnos.agregar(krane);
