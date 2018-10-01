@@ -1,8 +1,6 @@
 package model.repositories;
+import model.ApiConnector;
 
 public class Repositorios {
-
-	public static AsignacionesRepository asignaciones = new AsignacionesRepository();
-	public static AlumnosRepository alumnos = new AlumnosRepository();
-
+    static ApiConnector requester = new ApiConnector();
 }

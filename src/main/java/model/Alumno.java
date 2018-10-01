@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import model.repositories.AlumnosRepository;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Observable
 public class Alumno {
@@ -103,5 +105,13 @@ public class Alumno {
 	
 	public boolean meCorrespondeElLegajo(long legajo) {
 		return this.legajo == legajo;
+	}
+
+	public void modificarPerfil(String nombre, String apellido, String usuarioGithub) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuarioGithub = usuarioGithub;
+		
+		AlumnosRepository.getInstance().modificar(this);
 	}
 }

@@ -41,8 +41,7 @@ public class ApiConnector {
 //    	return this.getGenericResponse(Arrays.asList(STUDENTRESOURCE, ASSIGNMENTSRESOURCE), token);
 //    }
     
-    public ClientResponse getStudentByToken(String token) {
-    	
+    public ClientResponse getStudentByToken(String token) {    	
     	return this.client.resource(API_DDS)
 				.path(STUDENTRESOURCE)
 				.header("Authorization", "Bearer " + token)
@@ -60,8 +59,7 @@ public class ApiConnector {
 				.put(ClientResponse.class, parser.objectToJson(alumno));
     }
     
-    public ClientResponse getStudentAssignmentsByToken(String token) {
-    	
+    public ClientResponse getStudentAssignmentsByToken(String token) {    	
     	return this.client.resource(API_DDS)
 				.path(STUDENTRESOURCE).path(ASSIGNMENTSRESOURCE)
 				.header("Authorization", "Bearer " + token)

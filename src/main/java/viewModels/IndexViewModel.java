@@ -3,7 +3,7 @@ package viewModels;
 import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
-import model.repositories.Repositorios;
+import model.repositories.AlumnosRepository;
 
 @Observable
 public class IndexViewModel {
@@ -23,6 +23,7 @@ public class IndexViewModel {
 	}
 	
 	public Alumno getAlumnoXlegajo() {
-		return Repositorios.alumnos.getXlegajo(legajo);
+		AlumnosRepository.getInstance();
+		return AlumnosRepository.getXlegajo(legajo);
 	}
 }

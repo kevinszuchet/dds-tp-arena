@@ -8,7 +8,8 @@ import model.Alumno;
 public class EditarPerfilViewModel {
 	private Alumno alumno;
 	
-	private String nombreYApellido;
+	private String nombre;
+	private String apellido;
 	private long legajo;
 	private String usuarioGithub;
 	
@@ -16,19 +17,28 @@ public class EditarPerfilViewModel {
 		super();
 		this.alumno = alumno;
 		
-		this.nombreYApellido = alumno.getNombreYApellido();
+		this.nombre = alumno.getNombre();
+		this.apellido = alumno.getApellido();
 		this.legajo = alumno.getLegajo();
 		this.usuarioGithub = alumno.getUsuarioGithub();
 	}
 	
-	public String getNombreYApellido() {
-		return nombreYApellido;
+	public String getNombre() {
+		return nombre;
 	}
 	
-	public void setNombreYApellido(String nombreYApellido) {
-		this.nombreYApellido = nombreYApellido;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
 	public long getLegajo() {
 		return legajo;
 	}
@@ -46,6 +56,6 @@ public class EditarPerfilViewModel {
 	}
 	
 	public void modificarPerfil() {
-		alumno.setNombreYapellido(nombreYApellido).setLegajo(legajo).setUsuarioGithub(usuarioGithub);
+		alumno.modificarPerfil(nombre, apellido, getUsuarioGithub());
 	}
 }

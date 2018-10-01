@@ -29,11 +29,16 @@ public class EditarPerfilView extends Dialog<EditarPerfilViewModel> {
 		form.setLayout(new ColumnLayout(2));
 		
 		int preferedSize = 100;
-		new Label(form).setText("Nombre y apellido");
-		new TextBox(form).setWidth(preferedSize).bindValueToProperty("nombreYApellido");
 		
-		new Label(form).setText("Legajo");
-		new NumericField(form).setWidth(preferedSize).bindValueToProperty("legajo");
+		new Label(form).setText("Legajo: ");
+		new Label(form).bindValueToProperty("legajo");
+		// new NumericField(form).setWidth(preferedSize).bindValueToProperty("legajo");
+		
+		new Label(form).setText("Nombre");
+		new TextBox(form).setWidth(preferedSize).bindValueToProperty("nombre");
+		
+		new Label(form).setText("Apellido");
+		new TextBox(form).setWidth(preferedSize).bindValueToProperty("apellido");
 		
 		new Label(form).setText("Usuario de github");
 		new TextBox(form).setWidth(preferedSize).bindValueToProperty("usuarioGithub");
