@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import model.repositories.AlumnosRepository;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Observable
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Alumno {
 	
 	@JsonProperty("code")

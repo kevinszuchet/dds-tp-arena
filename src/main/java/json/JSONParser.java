@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -34,15 +35,19 @@ public class JSONParser<Entidad> {
 	public List<Entidad> jsonToObjectList(String json, Class<Entidad> tipoEntidad) {
 		
 		List<Entidad> elementos = new ArrayList<>();
+		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 		
 		try {
 			elementos = mapper.readValue(json, mapper.getTypeFactory().constructCollectionType(ArrayList.class, tipoEntidad));
 		} catch (JsonParseException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
+			// throw new NoSePudoImportarJSONException();
 		} catch (JsonMappingException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
+			// throw new NoSePudoImportarJSONException();
 		} catch (IOException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
+			// throw new NoSePudoImportarJSONException();
 		}
 		
 		return elementos;
