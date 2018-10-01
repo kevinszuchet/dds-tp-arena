@@ -1,11 +1,8 @@
 package model;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
+import json.JSONParser;
 
 import javax.ws.rs.core.MediaType;
 public class ApiConnector {
@@ -53,21 +50,14 @@ public class ApiConnector {
 				.get(ClientResponse.class);
     }
     
-    public String getUpdateJson(String name, String lastName, String githubUser) {
-    	return 	"{" + 
-					"'first_name':'" + name + "'" +
-					"'last_name':" + lastName + "'" +
-					"'github_user':'" + githubUser + "'" + 
-				"}";
-    }
-    
-    public ClientResponse updateStudentBy(String token, String name, String lastName, String githubUser) {
+    public ClientResponse updateStudentByToken(String token, Alumno alumno) {
+    	JSONParser<Alumno> parser = new JSONParser<Alumno>();
     	
     	return this.client.resource(API_DDS)
 				.path(STUDENTRESOURCE)
 				.header("Authorization", "Bearer " + token)
 				.accept(MediaType.APPLICATION_JSON)
-				.put(ClientResponse.class, getUpdateJson(name, lastName, githubUser));
+				.put(ClientResponse.class, parser.objectToJson(alumno));
     }
     
     public ClientResponse getStudentAssignmentsByToken(String token) {

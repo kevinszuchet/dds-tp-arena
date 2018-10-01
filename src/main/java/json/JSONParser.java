@@ -48,7 +48,7 @@ public class JSONParser<Entidad> {
 		return elementos;
 	}
 	
-	public String objectToJson(Class<Entidad> entidad) {
+	public String objectToJson(Entidad entidad) {
 
 		String json = ""; 
 		
