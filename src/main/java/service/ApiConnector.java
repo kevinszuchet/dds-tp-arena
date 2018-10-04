@@ -1,8 +1,9 @@
-package model;
+package service;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 
 import json.JSONParser;
+import model.Alumno;
 
 import javax.ws.rs.core.MediaType;
 public class ApiConnector {

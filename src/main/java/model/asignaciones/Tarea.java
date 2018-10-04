@@ -1,8 +1,10 @@
-package model;
+package model.asignaciones;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import model.Alumno;
 
 public class Tarea {
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
-import model.Asignacion;
+import model.asignaciones.Asignacion;
 import model.repositories.AsignacionesRepository;
 
 @Observable

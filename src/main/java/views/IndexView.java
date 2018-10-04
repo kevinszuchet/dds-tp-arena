@@ -16,7 +16,7 @@ import org.uqbar.commons.model.UserException;
 import org.uqbar.lacar.ui.model.Action;
 
 import model.Alumno;
-import model.NoExisteLegajoIngresadoException;
+import model.repositories.NoExisteLegajoIngresadoException;
 import viewModels.IndexViewModel;
 
 @SuppressWarnings("serial")

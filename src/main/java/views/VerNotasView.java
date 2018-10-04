@@ -13,7 +13,7 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.ObservableUtils;
 
 import model.Alumno;
-import model.Asignacion;
+import model.asignaciones.Asignacion;
 import viewModels.VerNotasViewModel;
 
 @SuppressWarnings("serial")

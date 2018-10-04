@@ -4,7 +4,6 @@ import com.sun.jersey.api.client.ClientResponse;
 
 import json.JSONParser;
 import model.Alumno;
-import model.NoExisteLegajoIngresadoException;
 
 public class AlumnosRepository extends Repositorios {
 	

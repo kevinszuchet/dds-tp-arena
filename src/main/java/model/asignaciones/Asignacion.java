@@ -1,4 +1,4 @@
-package model;
+package model.asignaciones;
 
 import java.util.List;
 import java.util.ArrayList;

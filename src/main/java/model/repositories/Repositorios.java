@@ -1,5 +1,5 @@
 package model.repositories;
-import model.ApiConnector;
+import service.ApiConnector;
 
 public class Repositorios {
     static ApiConnector requester = new ApiConnector();

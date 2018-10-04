@@ -1,4 +1,4 @@
-package model;
+package model.asignaciones;
 
 public class CalificacionNumerica implements Calificacion {
 	private final double seApruebaCon = 6;
