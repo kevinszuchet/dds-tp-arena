@@ -17,16 +17,16 @@ public class JSONParser<Entidad> {
 	
 	public Entidad jsonToObject(String json, Class<Entidad> tipoEntidad) {
 		
-		Entidad elemento;
+		Entidad elemento = null;
 		
 		try {
 			elemento = mapper.readValue(json, tipoEntidad);
-		} catch (NoSePudoImportarJSONException e) {
-			throw new NoSePudoImportarJSONException();
+		} catch (JsonParseException e) {
+			e.printStackTrace();
 		} catch (JsonMappingException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
 		} catch (IOException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
 		}
 		
 		return elemento;
@@ -41,13 +41,10 @@ public class JSONParser<Entidad> {
 			elementos = mapper.readValue(json, mapper.getTypeFactory().constructCollectionType(ArrayList.class, tipoEntidad));
 		} catch (JsonParseException e) {
 			e.printStackTrace();
-			// throw new NoSePudoImportarJSONException();
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
-			// throw new NoSePudoImportarJSONException();
 		} catch (IOException e) {
 			e.printStackTrace();
-			// throw new NoSePudoImportarJSONException();
 		}
 		
 		return elementos;
@@ -60,11 +57,11 @@ public class JSONParser<Entidad> {
 		try {
 			json = mapper.writeValueAsString(entidad);
 		} catch (JsonParseException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
 		} catch (JsonMappingException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
 		} catch (IOException e) {
-			throw new NoSePudoImportarJSONException();
+			e.printStackTrace();
 		}
 		
 		return json;
