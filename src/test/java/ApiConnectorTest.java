@@ -1,9 +1,7 @@
 import com.sun.jersey.api.client.ClientResponse;
-import java.util.List;
 
 import json.JSONParser;
 import model.Alumno;
-import model.asignaciones.Asignacion;
 import services.ApiConnector;
 
 import org.junit.Before;
@@ -15,7 +13,6 @@ public class ApiConnectorTest {
 
     private ApiConnector requester;
     private JSONParser<Alumno> parserAlumnos = new JSONParser<Alumno>();
-    private JSONParser<Asignacion> parserAsignaciones = new JSONParser<Asignacion>();
     
     private final String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 
@@ -56,8 +53,5 @@ public class ApiConnectorTest {
         
         String json = response.getEntity(String.class);
         assertTrue(json.contains("assignments"));
-        
-        List<Asignacion> asignaciones = parserAsignaciones.jsonToObjectList(json, Asignacion.class);
-        assertEquals(asignaciones.size(), 2);
     }
 }

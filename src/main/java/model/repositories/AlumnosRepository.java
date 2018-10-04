@@ -42,6 +42,6 @@ public class AlumnosRepository extends Repositorios {
 
 	public void modificar(Alumno alumno) {
 		// TODO: revisar si esta bien que el repo tenga la responsabilidad de modificar
-		ClientResponse response = requester.updateStudentByToken(token, alumno);
+		requester.updateStudentByToken(token, alumno);
 	}
 }

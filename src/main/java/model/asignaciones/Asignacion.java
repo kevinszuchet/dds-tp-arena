@@ -22,10 +22,18 @@ public class Asignacion {
 	public Asignacion() {}
 
 	public Asignacion(Tarea tarea, List<Calificacion> calificaciones) {
-		this.tarea = tarea;
+		this.setTarea(tarea);
 		this.calificaciones = calificaciones;
 	}
 	
+	public Tarea getTarea() {
+		return tarea;
+	}
+
+	public void setTarea(Tarea tarea) {
+		this.tarea = tarea;
+	}
+
 	public List<Calificacion> getCalificaciones() {
 		return calificaciones;
 	}
@@ -51,16 +59,16 @@ public class Asignacion {
 	}
 	
 	public String getNombreTarea() {
-		return tarea.getNombre();
+		return getTarea().getNombre();
 	}
 	
 	@JsonProperty("title")	
 	public void setTitle(String title) {
-		tarea.setNombre(title);
+		getTarea().setNombre(title);
 	}
 	
 	@JsonProperty("description")	
 	public void setDescription(String description) {
-		tarea.setDescripcion(description);
+		getTarea().setDescripcion(description);
 	}
 }

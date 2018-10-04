@@ -1,10 +1,10 @@
 package model.asignaciones;
 
-public class CalificacionNumerica implements Calificacion {
+public class CalificacionNumerica extends Calificacion {
 	private final double seApruebaCon = 6;
 	private double valor;
 	
-	public CalificacionNumerica(int valor) {
+	public CalificacionNumerica(double valor) {
 		this.valor = valor;
 	}
 	

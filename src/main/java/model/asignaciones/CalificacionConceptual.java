@@ -19,12 +19,16 @@ enum ValorConceptual {
 	}
 }
 
-public class CalificacionConceptual implements Calificacion { 
+public class CalificacionConceptual extends Calificacion { 
 	final List<ValorConceptual> conceptosAprobables = new ArrayList<>(Arrays.asList(ValorConceptual.BIEN, ValorConceptual.MUY_BIEN));
 	private ValorConceptual valor;
 	
 	public CalificacionConceptual(ValorConceptual valor) {
 		this.valor = valor;
+	}
+	
+	public CalificacionConceptual(String valor) {
+		this.valor = ValorConceptual.valueOf(valor);
 	}
 	
 	public String getCalificacion() {
