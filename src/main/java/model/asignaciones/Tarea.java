@@ -2,16 +2,11 @@ package model.asignaciones;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import model.Alumno;
 
 public class Tarea {
-	
-	@JsonProperty("title")
+
 	private String nombre;
-	
-	@JsonProperty("description")
 	private String descripcion;
 	
 	public Tarea() {}
@@ -27,6 +22,14 @@ public class Tarea {
 	
 	public String getDescripcion() {
 		return descripcion;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 	public void asignarA(Alumno alumno, List<Calificacion> calificaciones) {

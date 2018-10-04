@@ -8,6 +8,7 @@ import org.uqbar.commons.utils.Observable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import model.asignaciones.Asignacion;
 import model.repositories.AlumnosRepository;
@@ -28,7 +29,7 @@ public class Alumno {
 	@JsonProperty("github_user")
 	private String usuarioGithub;
 	
-	@JsonIgnore
+	@JsonProperty(access = Access.WRITE_ONLY, value = "assignments")
 	private List<Asignacion> asignaciones = new ArrayList<>();
 	
 	public Alumno() {}

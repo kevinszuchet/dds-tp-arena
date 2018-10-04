@@ -53,4 +53,14 @@ public class Asignacion {
 	public String getNombreTarea() {
 		return tarea.getNombre();
 	}
+	
+	@JsonProperty("title")	
+	public void setTitle(String title) {
+		tarea.setNombre(title);
+	}
+	
+	@JsonProperty("description")	
+	public void setDescription(String description) {
+		tarea.setDescripcion(description);
+	}
 }

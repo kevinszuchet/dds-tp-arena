@@ -4,7 +4,7 @@ import java.util.List;
 import json.JSONParser;
 import model.Alumno;
 import model.asignaciones.Asignacion;
-import service.ApiConnector;
+import services.ApiConnector;
 
 import org.junit.Before;
 import org.junit.Test;
