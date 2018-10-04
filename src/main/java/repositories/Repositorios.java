@@ -1,4 +1,4 @@
-package model.repositories;
+package repositories;
 import services.ApiConnector;
 
 public class Repositorios {

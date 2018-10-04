@@ -3,7 +3,7 @@ package viewModels;
 import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
-import model.repositories.AlumnosRepository;
+import repositories.AlumnosRepository;
 
 @Observable
 public class IndexViewModel {

@@ -11,8 +11,10 @@ public class ApiConnector {
 	
 	private Client client;
     private static final String API_DDS = "http://notitas.herokuapp.com";
-    private static final String STUDENTRESOURCE = "/student";
-    private static final String ASSIGNMENTSRESOURCE = "/assignments";
+    private static final String STUDENT_RESOURCE = "/student";
+    private static final String ASSIGNMENTS_RESOURCE = "/assignments";
+	
+	private static final String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 
     // Inicializacion del cliente.
     public ApiConnector() {
@@ -21,48 +23,27 @@ public class ApiConnector {
         //para agregarle filtros en las respuestas (por ejemplo, para loguear).
     }
     
-//    public ClientResponse getGenericResponse (List<String> paths, String token){
-//    	
-//    	ClientResponse  response = this.client.resource(API_DDS)
-//				.path(String.join("", paths))
-//				.header("Authorization", "Bearer" + token)
-//				.accept(MediaType.APPLICATION_JSON)
-//				.get(ClientResponse.class);
-//
-//		return response;
-//    }
-//    
-//    public ClientResponse getStudentByToken2 (String token) {
-//    	
-//    	return this.getGenericResponse(Arrays.asList(STUDENTRESOURCE), token);
-//    }
-//    
-//    public ClientResponse getStudentAssignmentsByToken2 (String token) {
-//    	
-//    	return this.getGenericResponse(Arrays.asList(STUDENTRESOURCE, ASSIGNMENTSRESOURCE), token);
-//    }
-    
-    public ClientResponse getStudentByToken(String token) {    	
+    public ClientResponse getStudent() {    	
     	return this.client.resource(API_DDS)
-				.path(STUDENTRESOURCE)
+				.path(STUDENT_RESOURCE)
 				.header("Authorization", "Bearer " + token)
 				.accept(MediaType.APPLICATION_JSON)
 				.get(ClientResponse.class);
     }
     
-    public ClientResponse updateStudentByToken(String token, Alumno alumno) {
+    public ClientResponse updateStudent(Alumno alumno) {
     	JSONParser<Alumno> parser = new JSONParser<Alumno>();
     	
     	return this.client.resource(API_DDS)
-				.path(STUDENTRESOURCE)
+				.path(STUDENT_RESOURCE)
 				.header("Authorization", "Bearer " + token)
 				.accept(MediaType.APPLICATION_JSON)
 				.put(ClientResponse.class, parser.objectToJson(alumno));
     }
     
-    public ClientResponse getStudentAssignmentsByToken(String token) {    	
+    public ClientResponse getStudentAssignments() {    	
     	return this.client.resource(API_DDS)
-				.path(STUDENTRESOURCE).path(ASSIGNMENTSRESOURCE)
+				.path(STUDENT_RESOURCE).path(ASSIGNMENTS_RESOURCE)
 				.header("Authorization", "Bearer " + token)
 				.accept(MediaType.APPLICATION_JSON)
 				.get(ClientResponse.class);

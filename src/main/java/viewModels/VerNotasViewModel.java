@@ -6,7 +6,7 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
 import model.asignaciones.Asignacion;
-import model.repositories.AsignacionesRepository;
+import repositories.AsignacionesRepository;
 
 @Observable
 public class VerNotasViewModel {

@@ -23,11 +23,7 @@ public class CalificacionDeserializer extends JsonDeserializer<Calificacion> {
 		Double calificacionNumerica = node.get("value").asDouble(0);
 		String calificacionConceptual = node.get("value").asText(null);		
 		
-		Calificacion calificacion = (calificacionNumerica > 0 
-										? new CalificacionNumerica(calificacionNumerica) 
-										: new CalificacionConceptual(calificacionConceptual)
-									);
-		
+		Calificacion calificacion = (calificacionNumerica > 0 ? new CalificacionNumerica(calificacionNumerica) : new CalificacionConceptual(calificacionConceptual));	
 		
 		return calificacion;
 	}

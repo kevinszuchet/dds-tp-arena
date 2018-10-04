@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import org.uqbar.commons.utils.Observable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import model.asignaciones.Asignacion;
-import model.repositories.AlumnosRepository;
+import repositories.AlumnosRepository;
 
 @Observable
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({ "code", "first_name", "last_name", "github_user" })
 public class Alumno {
 	
 	@JsonProperty("code")

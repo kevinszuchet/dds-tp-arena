@@ -2,6 +2,7 @@ import com.sun.jersey.api.client.ClientResponse;
 
 import json.JSONParser;
 import model.Alumno;
+import model.asignaciones.Asignacion;
 import services.ApiConnector;
 
 import org.junit.Before;
@@ -13,8 +14,6 @@ public class ApiConnectorTest {
 
     private ApiConnector requester;
     private JSONParser<Alumno> parserAlumnos = new JSONParser<Alumno>();
-    
-    private final String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 
     @Before
     public void setUp() throws Exception {
@@ -23,7 +22,7 @@ public class ApiConnectorTest {
 
     @Test
     public void obtenerAlumno() {
-        ClientResponse response = this.requester.getStudentByToken(token);
+        ClientResponse response = this.requester.getStudent();
         assertEquals(response.getStatus(), 200);
         
         String json = response.getEntity(String.class);
@@ -48,10 +47,21 @@ public class ApiConnectorTest {
 
     @Test
     public void obtenerAsignaciones() {
-    	ClientResponse response = this.requester.getStudentAssignmentsByToken(token);
+    	ClientResponse response = this.requester.getStudentAssignments();
         assertEquals(response.getStatus(), 200);
         
         String json = response.getEntity(String.class);
         assertTrue(json.contains("assignments"));
+        
+        json = "{\"assignments\": [{\"id\": 1, \"title\": \"Primer Parcial\", \"description\": null, \"grades\": [{\"id\": 1, \"value\": 2, \"created_at\": \"2017-03-25T13:56:07.526Z\", \"updated_at\": \"2017-03-25T13:56:07.526Z\"}, {\"id\": 2, \"value\": 7, \"created_at\": \"2017-03-25T13:56:07.595Z\", \"updated_at\": \"2017-03-25T13:56:07.595Z\"} ] }, {\"id\": 3, \"title\": \"TPA1\", \"description\": \"Primera Entrega del TP Anual\", \"grades\": [{\"id\": 4, \"value\": \"B+\", \"created_at\": \"2017-03-25T13:56:07.649Z\", \"updated_at\": \"2017-03-25T13:56:07.649Z\"} ] } ] }";
+        JSONParser<Asignacion> asignacionParser = new JSONParser<Asignacion>();
+        
+        Alumno alumno = new Alumno();
+        alumno.setAsignaciones(asignacionParser.jsonToObjectList(json, Asignacion.class));
+        
+        for (Asignacion asignacion : alumno.getAsignaciones()) {        	
+        	System.out.println(asignacion.getTarea().getNombre());
+        	System.out.println(asignacion.getTarea().getDescripcion());
+        }        
     }
 }

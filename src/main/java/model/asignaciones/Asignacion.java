@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Asignacion {
 
 	@JsonIgnore
-	private Tarea tarea;
+	private Tarea tarea = new Tarea();
 	
 	@JsonProperty("grades")
 	private List<Calificacion> calificaciones = new ArrayList<>();
