@@ -28,10 +28,13 @@ public class AlumnosRepository extends Repositorios {
 			throw new NoExisteLegajoIngresadoException();
 		}
 		
-		AsignacionesRepository.getInstance().asociarAsignaciones(alumno);
+		// Obtengo las asignaciones, a partir de un alumno (vacio)
+		// TODO: revisar esto, esta horrible
+		response = requester.getStudentAssignments();
+		json = response.getEntity(String.class);
+		Alumno alumnoConAsignaciones = parserAlumnos.jsonToObject(json, Alumno.class);
 		
-		System.out.println(alumno.getAsignaciones());
-		System.out.println(alumno.getAsignaciones().size());
+		alumno.setAsignaciones(alumnoConAsignaciones.getAsignaciones());
 		
 		return alumno;
 	}

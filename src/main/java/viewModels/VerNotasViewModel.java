@@ -6,7 +6,6 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Alumno;
 import model.asignaciones.Asignacion;
-import repositories.AsignacionesRepository;
 
 @Observable
 public class VerNotasViewModel {
@@ -18,9 +17,7 @@ public class VerNotasViewModel {
 	}
 	
 	public List<Asignacion> getAsignaciones() {
-		// TODO: cuando solucionemos el parseo del json de asignaciones descomentar el return
 		return this.alumno.getAsignaciones();
-		// return AsignacionesRepository.getInstance().obtenerXalumno(this.alumno);
 	}
 	
 	public String getNombreYApellido() {
@@ -37,9 +34,5 @@ public class VerNotasViewModel {
 	
 	public Alumno getAlumno() {		
 		return alumno;
-	}
-	
-	public void actualizar() {
-		
 	}
 }

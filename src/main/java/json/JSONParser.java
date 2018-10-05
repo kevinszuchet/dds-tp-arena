@@ -1,10 +1,7 @@
 package json;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -32,7 +29,8 @@ public class JSONParser<Entidad> {
 		return elemento;
 	}
 	
-	public List<Entidad> jsonToObjectList(String json, Class<Entidad> tipoEntidad) {
+	// TODO: habria que revisar porque no se puede parsear las asignaciones con esto	
+	/*public List<Entidad> jsonToObjectList(String json, Class<Entidad> tipoEntidad) {
 		
 		List<Entidad> elementos = new ArrayList<>();
 		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
@@ -48,7 +46,7 @@ public class JSONParser<Entidad> {
 		}
 		
 		return elementos;
-	}
+	}*/
 	
 	public String objectToJson(Entidad entidad) {
 
